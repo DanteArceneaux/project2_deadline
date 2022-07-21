@@ -42,10 +42,12 @@ function UsersPage() {
     return (
     <div className='w-full h-full flex-col px-10 py-8'>
 
+
         
 
         <div className="w-full h-full flex-col flex min-h-[50vh] justify-center items-center ">
 
+       
         <h1  className='text-black text-3xl font-semibold mt-16'> Users page </h1>
 
         <table className="w-[80%] text-center overflow-hidden overflow-y-scroll mt-8 border border-black">
@@ -108,8 +110,15 @@ function UsersPage() {
                 <button onClick={()=>Delete(
                     data.userId
                 )} className='px-6 py-2 text-white bg-red-600 rounded-lg font-semibold'>Delete</button>
+                 <Link to="add" className='px-3 py-2 text-white bg-green-600 rounded-lg font-semibold'> Add Users</Link>
+
+
+                
               </td>
             </tr>
+
+
+
             ))}
             
           </tbody>

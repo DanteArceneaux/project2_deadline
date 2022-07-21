@@ -10,7 +10,7 @@ function Navbar() {
         <Link to="/" className='text-white text-3xl font-semibold '>Weapons</Link>
         <Link to="/" className='text-white text-3xl font-semibold '>Items</Link>
         <Link to="/" className='text-white text-3xl font-semibold '>Armor</Link>
-        <Link to="users/add" className='w-48 bg-white text-blue font-semibold text-xl h-12 rounded-lg flex justify-center items-center transition ease-in-out delay-150 bg-white  hover:bg-red-500 hover:text-white duration-50; '> Add Users</Link>
+        
     </div>
   )
 }

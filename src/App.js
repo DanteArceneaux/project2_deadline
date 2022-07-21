@@ -2,9 +2,10 @@
 import './index.css';
 import Navbar from './Pages/Navbar';
 import UsersPage from './Pages/UsersPage';
-import User from './Pages/user/User';
-import AddUser from './Pages/user/AddUser';
-import EditUser from './Pages/user/EditUser';
+import HomePage from './Pages/HomePage';
+import User from './user/User';
+import AddUser from './user/AddUser';
+import EditUser from './user/EditUser';
 import { BrowserRouter, Route, browserHistory, Routes } from 'react-router';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/users" element={<UsersPage />} />
         <Route exact path="/users/:id" element={<User />} />
+        <Route exact path="/" element={<HomePage />} />
         <Route exact path="/users/add" element={<AddUser />} />
         <Route exact path="/users/update/:id" element={<EditUser />} />
       </Routes>
