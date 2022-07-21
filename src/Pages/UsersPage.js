@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 
 
-function Home() {
+function UsersPage() {
 
     const [users, setUsers] = useState([]);
 
@@ -46,7 +46,7 @@ function Home() {
 
         <div className="w-full h-full flex-col flex min-h-[50vh] justify-center items-center ">
 
-        <h1  className='text-black text-3xl font-semibold mt-16'> Home page </h1>
+        <h1  className='text-black text-3xl font-semibold mt-16'> Users page </h1>
 
         <table className="w-[80%] text-center overflow-hidden overflow-y-scroll mt-8 border border-black">
           <thead className="border-b bg-gray-800">
@@ -104,7 +104,7 @@ function Home() {
               </td>
               <td className=" flex space-x-4  whitespace-nowrap justify-center items-center mt-1">
                 <Link to={`/users/${data.userId}`} className='px-6 py-2 text-white bg-black rounded-lg font-semibold'>View</Link>
-                <Link to={`/users/editUser/${data.userId}`} className='px-6 py-2 text-white bg-blue-600 rounded-lg font-semibold'>Edit </Link>
+                <Link to={`/users/update/${data.userId}`} className='px-6 py-2 text-white bg-blue-600 rounded-lg font-semibold'>Edit </Link>
                 <button onClick={()=>Delete(
                     data.userId
                 )} className='px-6 py-2 text-white bg-red-600 rounded-lg font-semibold'>Delete</button>
@@ -121,4 +121,4 @@ function Home() {
     </div>
     )}
 
-export default Home
+export default UsersPage

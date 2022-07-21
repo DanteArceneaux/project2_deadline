@@ -26,8 +26,14 @@ function EditUser() {
   useEffect(() => {
       axios.get(`http://localhost:8082/users/${id}`)
           .then(res => {
-              setUser(res.data); 
-              console.log(user)
+              setFirstName(res.data.firstName); 
+              setLastName(res.data.lastName);
+              setUsername(res.data.username);
+              setEmail(res.data.email);
+              setPassword(res.data.password);
+              setRole(res.data.role);
+
+              
           }
           )
           .catch(err => {
@@ -38,7 +44,23 @@ function EditUser() {
 
 
 
+  const data = {
+    firstName: firstName,
+    lastName: lastName,
+    username: username,
+    email: email,
+    password: password,
+    role: role
+}
 
+
+function Update(e){
+    e.preventDefault();
+    axios.put(`http://localhost:8082/users/update/${id}`, data)
+    .then(navigate('/'))
+}
+
+ 
 
 
   return (
@@ -63,7 +85,7 @@ function EditUser() {
     
                 
             </form>
-            <button  className='px-6 py-2 text-white bg-red-600 rounded-lg font-semibold mt-5'> UPDATE</button>
+            <button onClick={Update}  className='px-6 py-2 text-white bg-red-600 rounded-lg font-semibold mt-5'> UPDATE</button>
         </div>
   )
 }
