@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 
 function EditUser() {
 
+    const [userId, setUserId] = useState([]);
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
@@ -26,6 +28,7 @@ function EditUser() {
   useEffect(() => {
       axios.get(`http://localhost:8082/users/${id}`)
           .then(res => {
+            
               setFirstName(res.data.firstName); 
               setLastName(res.data.lastName);
               setUsername(res.data.username);
@@ -45,6 +48,7 @@ function EditUser() {
 
 
   const data = {
+    
     firstName: firstName,
     lastName: lastName,
     username: username,
@@ -57,7 +61,7 @@ function EditUser() {
 function Update(e){
     e.preventDefault();
     axios.put(`http://localhost:8082/users/update/${id}`, data)
-    .then(navigate('/'))
+    .then(navigate('/users'))
 }
 
  

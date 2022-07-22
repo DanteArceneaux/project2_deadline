@@ -3,15 +3,15 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 
 
-function UsersPage() {
+function WeaponsPage() {
 
-    const [users, setUsers] = useState([]);
+    const [weapons, setWeapons] = useState([]);
 
-    const loadUsers = ()=>{
-        axios.get('http://localhost:8082/users')
+    const loadWeapons = ()=>{
+        axios.get('http://localhost:8082/weapons')
             .then(res => {
-                setUsers(res.data); 
-                console.log(users)
+                setWeapons(res.data); 
+                console.log(weapons)
             })
             .catch(err => {
                 console.log(err)
@@ -20,14 +20,14 @@ function UsersPage() {
 
     useEffect(() => {
 
-        loadUsers();
+        loadWeapons();
        
     }, [])
 
     function Delete(id){
-        axios.delete(`http://localhost:8082/users/${id}`)
+        axios.delete(`http://localhost:8082/weapons/delete/${id}`)
             .then(res => {
-                loadUsers();
+                loadWeapons();
             }
             )
             .catch(err => {
@@ -42,14 +42,12 @@ function UsersPage() {
     return (
     <div className='w-full h-full flex-col px-10 py-8'>
 
-
-<Link to="add" className='px-3 py-2 text-white bg-green-600 rounded-lg font-semibold'> Add Hero</Link>
+<Link to="add" className='px-3 py-2 text-white bg-green-600 rounded-lg font-semibold'> Add Users</Link>
 
 
         <div className="w-full h-full flex-col flex min-h-[50vh] justify-center items-center ">
 
-       
-        <h1  className='text-black text-3xl font-semibold mt-16'> Heroes page </h1>
+        <h1  className='text-black text-3xl font-semibold mt-16'> Weapon page </h1>
 
         <table className="w-[80%] text-center overflow-hidden overflow-y-scroll mt-8 border border-black">
           <thead className="border-b bg-gray-800">
@@ -58,68 +56,52 @@ function UsersPage() {
                ID
               </th>
               <th scope="col" className="text-lg font-medium text-white px-6 py-4">
-              First Name
+                Name
+              </th>
+              
+              <th scope="col" className="text-lg font-medium text-white px-6 py-4">
+                Power
               </th>
               <th scope="col" className="text-lg font-medium text-white px-6 py-4">
-                Last Name
-              </th>
-              <th scope="col" className="text-lg font-medium text-white px-6 py-4">
-                Email
-              </th>
-              <th scope="col" className="text-lg font-medium text-white px-6 py-4">
-                Username
-              </th>
-              <th scope="col" className="text-lg font-medium text-white px-6 py-4">
-                Password
-              </th>
-              <th scope="col" className="text-lg font-medium text-white px-6 py-4">
-                Role
+                Price
               </th> 
+              <th scope="col" className="text-lg font-medium text-white px-6 py-4">
+                Description
+              </th>
               <th scope="col" className="text-lg font-medium text-white px-6 py-4">
                 Action
               </th>
             </tr>
           </thead >
-         {console.log(users)} 
+         {console.log(weapons)} 
           <tbody>
-          {users.map((data, index) => (
+          {weapons.map((data, index) => (
             <tr key={index} className="bg-white border-b">
               <td className="px-6 py-4 whitespace-nowrap text-lg font-medium text-gray-900">
-                {data.userId}
+                {data.id}
               </td>
               <td className="text-lg text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              {data.firstName}
+              {data.name}
               </td>
               <td className="text-lg text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              {data.lastName}
+              {data.power}
               </td>
               <td className="text-lg text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              {data.email}
+              {data.price}
               </td>
               <td className="text-lg text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              {data.username}
+              {data.description}
               </td>
-              <td className="text-lg text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              {data.password}
-              </td>
-              <td className="text-lg text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              {data.role}
-              </td>
+              
               <td className=" flex space-x-4  whitespace-nowrap justify-center items-center mt-1">
-                <Link to={`/users/${data.userId}`} className='px-6 py-2 text-white bg-black rounded-lg font-semibold'>View</Link>
-                <Link to={`/users/update/${data.userId}`} className='px-6 py-2 text-white bg-blue-600 rounded-lg font-semibold'>Edit </Link>
+                <Link to={`/weapons/${data.id}`} className='px-6 py-2 text-white bg-black rounded-lg font-semibold'>View</Link>
+                <Link to={`/weapons/update/${data.id}`} className='px-6 py-2 text-white bg-blue-600 rounded-lg font-semibold'>Edit </Link>
+                <Link to={`/weapons/add`} className='px-6 py-2 text-white bg-blue-600 rounded-lg font-semibold'> Add Weapons</Link>
                 <button onClick={()=>Delete(
-                    data.userId
+                    data.id
                 )} className='px-6 py-2 text-white bg-red-600 rounded-lg font-semibold'>Delete</button>
-                 <Link to="add" className='px-3 py-2 text-white bg-green-600 rounded-lg font-semibold'> Add Users</Link>
-
-
-                
               </td>
             </tr>
-
-
-
             ))}
             
           </tbody>
@@ -131,4 +113,4 @@ function UsersPage() {
     </div>
     )}
 
-export default UsersPage
+export default WeaponsPage

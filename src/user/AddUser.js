@@ -71,7 +71,7 @@ function AddUser() {
 
             <input value={password}  onChange={(e) => setPassword(e.target.value)} type="email" placeholder="Enter email" className='w-[80%] bg-white/10 text-xl  font-normal py-6 pl-6  outline-none border border-zinc-400  mt-4' />
 
-            <input value={role}  onChange={(e) => setRole(e.target.value)} type="text" placeholder="Enter role (ADMIN or PLAYER)" className='w-[80%] bg-white- 10 text-xl  font-normal py-6 pl-6  outline-none border border-zinc-400  mt-4' />
+            <input value={role}  onChange={(e) => setRole(e.target.value)} type="text" placeholder="Enter role (GOOD or EVIL)" className='w-[80%] bg-white- 10 text-xl  font-normal py-6 pl-6  outline-none border border-zinc-400  mt-4' />
 
             
         </form>
