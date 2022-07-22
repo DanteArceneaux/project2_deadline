@@ -37,10 +37,10 @@ function User() {
 <div className="w-[900px] h-[300px] flex px-6 py-4 border border-black mt-16 justify-center items-center">
 
     <div className="w-5/12 flex flex-col space-y-4">
-    <h2 className = 'text-black font semibold font-Inter text-2xl border-b border-black'>First Name</h2>
+    <h2 className = 'max-w-sm text-black font semibold font-Inter text-2xl border-b border-black'>First Name</h2>
     <h2 className = 'text-black font semibold font-Inter text-2xl border-b border-black'>Last Name</h2>
-    <h2 className = 'text-black font semibold font-Inter text-2xl border-b border-black'>Email</h2>
-    <h2 className = 'text-black font semibold font-Inter text-2xl border-b border-black'>Password</h2>
+    <h2 className = 'text-black font semibold font-Inter text-2xl border-b border-black'>Nickname</h2>
+    <h2 className = 'text-black font semibold font-Inter text-2xl border-b border-black'>Description</h2>
     <h2 className = 'text-black font semibold font-Inter text-2xl border-b border-black'>Role</h2>
 </div>
 
